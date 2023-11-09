@@ -23,8 +23,8 @@ setup() {
 		sudo apt-get install -y git
 	fi
 	#clone repo
-	git clone "https://github.com/darthmonkey2004/backup.git"
-	cd backup
+	#git clone "https://github.com/darthmonkey2004/backup.git"
+	#cd backup
 	#create source distro
 	python3 setup.py sdist
 	#install package using requirements.txt
