@@ -16,15 +16,18 @@ mkdesktop() {
 }
 
 setup() {
+	cd "$HOME"
 	#test for git
 	hasgit=$(which git)
 	if [ -z "$hasgit" ]; then
 		#install if needed
 		sudo apt-get install -y git
 	fi
-	#clone repo
-	#git clone "https://github.com/darthmonkey2004/backup.git"
-	#cd backup
+	if [ ! -d "$HOME/backup" ]; then
+		clone repo
+		git clone "https://github.com/darthmonkey2004/backup.git"
+	fi
+	cd backup
 	#create source distro
 	python3 setup.py sdist
 	#install package using requirements.txt
