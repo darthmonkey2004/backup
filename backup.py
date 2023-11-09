@@ -1,3 +1,5 @@
+#!/bin/env python3
+
 import time
 import subprocess
 import pickle
@@ -216,6 +218,8 @@ if __name__ == "__main__":
 	parser.add_argument("-t", "--targets", help="A comma separated list of target paths (to add, incremental)", action="store")
 	parser.add_argument("-m", "--menu", help="Starts configuration menu.", action="store_true")
 	args = parser.parse_args()
+	if not args.backup and not args.restore:
+		args.menu = True
 	if args.menu:
 		b = backup(menu=True)
 	else:
